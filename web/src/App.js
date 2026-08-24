@@ -576,7 +576,7 @@ export default function MethuselahFinal() {
         setGlucoseInput("");
         addLog("BLE INTERCEPT: " + glucose.toFixed(1) + " MMOL/L // AUTO-LOGGED", "roche");
         const bri = calculateBRI({ glucose, hrv, rhr, sleepDurationHrs, glucosePending: false });
-        addLog("BIOLOGICAL READINESS INDEX: " + bri.score + " // " + bri.label + " // ALL VECTORS CONFIRMED");
+        addLog("BIOLOGICAL READINESS INDEX: " + bri.score + " // " + bri.label);
       } else {
         addLog("BLE // NO READING YET — ENTER MANUALLY", "event");
       }
@@ -602,7 +602,7 @@ export default function MethuselahFinal() {
     pushGlucoseToServer(val, nowIso);
     addLog(`MANUAL GLUCOSE: ${val.toFixed(1)} MMOL/L`, "roche");
     const briGlucose = calculateBRI({ glucose: val, hrv, rhr, sleepDurationHrs, glucosePending: false });
-    addLog(`BIOLOGICAL READINESS INDEX: ${briGlucose.score} // ${briGlucose.label} // ALL VECTORS CONFIRMED`, "", briGlucose.color);
+    addLog(`BIOLOGICAL READINESS INDEX: ${briGlucose.score} // ${briGlucose.label}`, "", briGlucose.color);
     setGlucoseEntryOpen(false);
     setGlucoseInput("");
   };
